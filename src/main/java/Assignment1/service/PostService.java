@@ -1,6 +1,6 @@
-package Lab.lab.assignment.service;
-import Lab.lab.assignment.domain.Post;
-import Lab.lab.assignment.dto.PostDto;
+package Assignment1.service;
+import Assignment1.domain.Post;
+import Assignment1.dto.PostDto;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
-package Lab.lab.assignment.repo;
+package Assignment1.repo;
 
-import Lab.lab.assignment.domain.Post;
-import Lab.lab.assignment.domain.PostV2;
+import Assignment1.domain.Post;
 
 import java.util.List;
 

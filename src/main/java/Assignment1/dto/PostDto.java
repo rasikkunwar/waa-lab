@@ -1,4 +1,4 @@
-package Lab.lab.assignment.dto;
+package Assignment1.dto;
 
 import lombok.Data;
 

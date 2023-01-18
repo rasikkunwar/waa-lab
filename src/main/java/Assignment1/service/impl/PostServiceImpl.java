@@ -1,12 +1,11 @@
-package Lab.lab.assignment.service.impl;
+package Assignment1.service.impl;
 
-import Lab.lab.assignment.domain.Post;
-import Lab.lab.assignment.domain.PostV2;
-import Lab.lab.assignment.dto.PostDto;
-import Lab.lab.assignment.helper.ListMapper;
-import Lab.lab.assignment.repo.PostRepo;
+import Assignment1.dto.PostDto;
+import Assignment1.repo.PostRepo;
+import Assignment1.domain.Post;
+import Assignment1.helper.ListMapper;
 
-import Lab.lab.assignment.service.PostService;
+import Assignment1.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

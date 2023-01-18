@@ -1,4 +1,4 @@
-package Lab.lab.assignment;
+package Assignment1;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

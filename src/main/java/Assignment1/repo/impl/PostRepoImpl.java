@@ -1,8 +1,7 @@
-package Lab.lab.assignment.repo.impl;
+package Assignment1.repo.impl;
 
-import Lab.lab.assignment.domain.Post;
-import Lab.lab.assignment.domain.PostV2;
-import Lab.lab.assignment.repo.PostRepo;
+import Assignment1.domain.Post;
+import Assignment1.repo.PostRepo;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

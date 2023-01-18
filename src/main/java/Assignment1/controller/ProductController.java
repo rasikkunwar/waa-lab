@@ -1,8 +1,8 @@
-package Lab.lab.assignment.controller;
+package Assignment1.controller;
 
-import Lab.lab.assignment.domain.Post;
-import Lab.lab.assignment.dto.PostDto;
-import Lab.lab.assignment.service.PostService;
+import Assignment1.domain.Post;
+import Assignment1.dto.PostDto;
+import Assignment1.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
