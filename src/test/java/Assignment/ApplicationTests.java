@@ -1,4 +1,4 @@
-package Assignment1;
+package Assignment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

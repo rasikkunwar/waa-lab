@@ -1,16 +1,17 @@
-package Assignment1.service.impl;
+package Assignment.service.impl;
 
-import Assignment1.dto.PostDto;
-import Assignment1.repo.PostRepo;
-import Assignment1.domain.Post;
-import Assignment1.helper.ListMapper;
+import Assignment.dto.PostDto;
+import Assignment.repo.PostRepo;
+import Assignment.domain.Post;
+import Assignment.helper.ListMapper;
 
-import Assignment1.service.PostService;
+import Assignment.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,10 +23,14 @@ public class PostServiceImpl implements PostService {
     @Autowired
     ListMapper<Post, PostDto> listMapperPostToDto;
     public List<PostDto> findAll() {
-        return (List<PostDto>) listMapperPostToDto.mapList(postRepo.findAll(),new PostDto());}
+        List<Post> list = new ArrayList<>();
+        postRepo.findAll().forEach(x->list.add((Post) x));
+        return (List<PostDto>) listMapperPostToDto.mapList(list,new PostDto());}
 
     public List<PostDto> findAllByAuthor(String author) {
-        return (List<PostDto>) listMapperPostToDto.mapList(postRepo.findAllByAuthor(author),new PostDto());}
+        return null;
+//        return (List<PostDto>) listMapperPostToDto.mapList(postRepo.findAllByAuthor(author),new PostDto());
+    }
 
     @Override
     public PostDto findById(long id) {
@@ -39,11 +44,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void delete(long id) {
-        postRepo.delete(id);
+        postRepo.deleteById(id);
     }
 
     @Override
-    public void update(long id, Post p) {
-        postRepo.update(id, p);
+    public void update(Post p) {
+        postRepo.save(p);
     }
 }

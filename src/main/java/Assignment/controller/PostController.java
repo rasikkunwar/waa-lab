@@ -1,8 +1,8 @@
-package Assignment1.controller;
+package Assignment.controller;
 
-import Assignment1.domain.Post;
-import Assignment1.dto.PostDto;
-import Assignment1.service.PostService;
+import Assignment.domain.Post;
+import Assignment.dto.PostDto;
+import Assignment.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/posts")
-public class ProductController {
+public class PostController {
     @Autowired
     PostService postService;
 
@@ -30,9 +30,9 @@ public class ProductController {
         postService.save(post);
     }
 
-    @PutMapping("{id}")
-    public void update(@PathVariable long id, @RequestBody Post post){
-        postService.update(id,post);
+    @PutMapping
+    public void update(@RequestBody Post post){
+        postService.update(post);
     }
 
     @DeleteMapping("{id}")

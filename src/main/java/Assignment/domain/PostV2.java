@@ -1,15 +1,13 @@
-package Assignment1.domain;
+package Assignment.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+public class PostV2 {
     private long id;
     private String title;
     private String content;

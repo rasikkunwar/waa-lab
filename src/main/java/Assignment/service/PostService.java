@@ -1,6 +1,6 @@
-package Assignment1.service;
-import Assignment1.domain.Post;
-import Assignment1.dto.PostDto;
+package Assignment.service;
+import Assignment.domain.Post;
+import Assignment.dto.PostDto;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface PostService {
 
     void delete(long id);
 
-    void update(long id, Post p);
+    void update(Post p);
 
     List<PostDto> findAllByAuthor(String author);
 

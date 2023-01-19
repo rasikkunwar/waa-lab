@@ -1,4 +1,4 @@
-package Assignment1.helper;
+package Assignment.helper;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
