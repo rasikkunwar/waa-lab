@@ -2,6 +2,7 @@ package Assignment.service;
 
 import Assignment.domain.Post;
 import Assignment.domain.User;
+import Assignment.dto.CommentDto;
 import Assignment.dto.PostDto;
 import Assignment.dto.UserDto;
 
@@ -22,5 +23,9 @@ public interface UserService {
 
     List<PostDto> findAllPostsByUser(long id);
 
-    List<UserDto> findAllUsersHavingMoreThanOnePosts();
+    List<UserDto> findAllUsersHavingMoreThanNPosts(Integer nop);
+
+    List<UserDto> findAllUsersHavingPostsWithTitle(String title);
+
+    CommentDto findCommentByUserPostId(Long id, Long postId, Long commentId);
 }

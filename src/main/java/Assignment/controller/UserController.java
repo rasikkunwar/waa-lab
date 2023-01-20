@@ -2,6 +2,7 @@ package Assignment.controller;
 
 import Assignment.domain.Post;
 import Assignment.domain.User;
+import Assignment.dto.CommentDto;
 import Assignment.dto.PostDto;
 import Assignment.dto.UserDto;
 import Assignment.service.UserService;
@@ -17,14 +18,19 @@ public class UserController {
     UserService userService;
 
     @GetMapping
-    public List<UserDto> findAll(){
-        return  userService.findAll();
+    public List<UserDto> findAll(@RequestParam(name = "postTitle", required = false) String postTitle){
+        return  postTitle == null ? userService.findAll() : userService.findAllUsersHavingPostsWithTitle(postTitle);
     }
 
 
     @GetMapping("{id}")
     public UserDto findById(@PathVariable long id){
         return userService.findById(id);
+    }
+
+    @GetMapping("{id}/posts/{postId}/comments/{commentId}")
+    public CommentDto findById(@PathVariable Long id,@PathVariable Long postId , @PathVariable Long commentId){
+        return userService.findCommentByUserPostId(id,postId,commentId);
     }
 
     @PostMapping
@@ -47,9 +53,9 @@ public class UserController {
         return userService.findAllPostsByUser(id);
     }
 
-    @GetMapping("/having-more-than-one-posts")
-    public List<UserDto> findAllUsersHavingMoreThanOnePosts(){
-        return userService.findAllUsersHavingMoreThanOnePosts();
+    @GetMapping("/having-more-than-n-posts")
+    public List<UserDto> findAllUsersHavingMoreThanNPosts(@RequestParam(value="filter") Integer nop){
+        return userService.findAllUsersHavingMoreThanNPosts(nop);
     }
 
 }

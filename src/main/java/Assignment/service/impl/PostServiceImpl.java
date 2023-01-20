@@ -32,6 +32,10 @@ public class PostServiceImpl implements PostService {
 //        return (List<PostDto>) listMapperPostToDto.mapList(postRepo.findAllByAuthor(author),new PostDto());
     }
 
+    public List<PostDto> findAllByTitle(String title){
+                return (List<PostDto>) listMapperPostToDto.mapList(postRepo.findAllByTitleIs(title),new PostDto());
+    }
+
     @Override
     public PostDto findById(long id) {
         return modelMapper.map(postRepo.findById(id),PostDto.class);

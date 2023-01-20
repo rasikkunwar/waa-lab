@@ -1,7 +1,9 @@
 package Assignment.service.impl;
 
+import Assignment.domain.Comment;
 import Assignment.domain.Post;
 import Assignment.domain.User;
+import Assignment.dto.CommentDto;
 import Assignment.dto.PostDto;
 import Assignment.dto.UserDto;
 import Assignment.helper.ListMapper;
@@ -58,8 +60,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDto> findAllUsersHavingMoreThanOnePosts() {
-        return (List<UserDto>) listMapperUserToDto.mapList(userRepo.findAllUsersHavingMoreThanOnePosts(),new UserDto());
+    public List<UserDto> findAllUsersHavingMoreThanNPosts(Integer nop) {
+        return (List<UserDto>) listMapperUserToDto.mapList(userRepo.findAllUsersHavingMoreThanNPosts(nop),new UserDto());
+    }
+
+    @Override
+    public List<UserDto> findAllUsersHavingPostsWithTitle(String title) {
+        return (List<UserDto>) listMapperUserToDto.mapList(userRepo.findAllUsersHavingPostsWithTitle(title),new UserDto());
+    }
+
+    @Override
+    public CommentDto findCommentByUserPostId(Long id,Long postId, Long commentId) {
+        return modelMapper.map(userRepo.findCommentOfPostByUserId(id,postId,commentId), CommentDto.class);
     }
 
 }

@@ -15,8 +15,8 @@ public class PostController {
     PostService postService;
 
     @GetMapping
-    public List<PostDto> findAll(@RequestParam(value="filter",required = false) String author){
-        return author == null ? postService.findAll() :postService.findAllByAuthor(author) ;
+    public List<PostDto> findAll(@RequestParam(value="filter",required = false) String title){
+        return title == null ? postService.findAll() :postService.findAllByTitle(title) ;
     }
 
 

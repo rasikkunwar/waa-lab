@@ -19,7 +19,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    @OneToMany(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
+    @JsonManagedReference
     private List<Post> posts;
 }

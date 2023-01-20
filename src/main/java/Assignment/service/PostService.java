@@ -7,8 +7,6 @@ import java.util.List;
 public interface PostService {
     public List<PostDto> findAll();
 
-
-
     PostDto findById(long id);
 
     void save(Post p);
@@ -18,5 +16,7 @@ public interface PostService {
     void update(Post p);
 
     List<PostDto> findAllByAuthor(String author);
+
+    List<PostDto> findAllByTitle(String title);
 
 }
