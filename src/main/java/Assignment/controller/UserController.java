@@ -1,5 +1,6 @@
 package Assignment.controller;
 
+import Assignment.aspect.annotation.ExecutionTime;
 import Assignment.domain.Post;
 import Assignment.domain.User;
 import Assignment.dto.CommentDto;
@@ -23,6 +24,7 @@ public class UserController {
     }
 
 
+    @ExecutionTime
     @GetMapping("{id}")
     public UserDto findById(@PathVariable long id){
         return userService.findById(id);
@@ -56,6 +58,17 @@ public class UserController {
     @GetMapping("/having-more-than-n-posts")
     public List<UserDto> findAllUsersHavingMoreThanNPosts(@RequestParam(value="filter") Integer nop){
         return userService.findAllUsersHavingMoreThanNPosts(nop);
+    }
+
+    @PostMapping("/check-exception")
+    public void checkException(@RequestParam Integer age) {
+        if(age<18) {
+            //throw Arithmetic exception if not eligible to vote
+            throw new ArithmeticException("Person is not eligible to vote");
+        }
+        else {
+            System.out.println("Person is eligible to vote!!");
+        }
     }
 
 }
