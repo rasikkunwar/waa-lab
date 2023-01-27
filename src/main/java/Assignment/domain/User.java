@@ -19,6 +19,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String email;
+    @JsonIgnore
+    private String password;
+
+    @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+    @JoinTable
+    private List<Role> roles;
+
     @OneToMany(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
     @JsonManagedReference

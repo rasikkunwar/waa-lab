@@ -8,6 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface UserRepo extends CrudRepository<User,Long> {
+
+    User findByEmail(String email);
+
     @Query("SELECT u FROM User u join u.posts p group by u.id having count(p.id) > :nop")
     List<User> findAllUsersHavingMoreThanNPosts(Integer nop);
 

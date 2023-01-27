@@ -12,6 +12,7 @@ import Assignment.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User u) {
+        u.setPassword(new BCryptPasswordEncoder().encode(u.getPassword()));
         userRepo.save(u);
     }
 
