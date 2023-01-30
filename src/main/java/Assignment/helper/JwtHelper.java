@@ -13,9 +13,9 @@ import java.util.function.Function;
 @Component
 public class JwtHelper {
     private final String secret = "CS545-2023-01A-01D-01";
-    private final long expiration = 5 * 60 * 60 * 60;
+    private final long expiration = 180000;
     //     private final long expiration = 5;
-    private final long refreshExpiration = 5 * 60 * 60 * 60 * 60;
+    private final long refreshExpiration = 900000;
 
     // this wil extract a claim from a token, its used in the methods above to get the username and date
     // TODO When this detects the access token is expired it will throw and exception.

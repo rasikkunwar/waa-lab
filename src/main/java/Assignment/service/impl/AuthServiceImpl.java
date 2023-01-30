@@ -41,6 +41,20 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
-        return null;
+        boolean isRefreshTokenValid = jwtHelper.validateToken(refreshTokenRequest.getRefreshToken());
+        if (isRefreshTokenValid) {
+            // TODO (check the expiration of the accessToken when request sent, if the is recent according to
+            //  issue Date, then accept the renewal)
+            var isAccessTokenExpired = jwtHelper.isTokenExpired(refreshTokenRequest.getAccessToken());
+            if(isAccessTokenExpired)
+                System.out.println("ACCESS TOKEN IS EXPIRED"); // TODO Renew is this case
+            else
+                System.out.println("ACCESS TOKEN IS NOT EXPIRED");
+            final String accessToken = jwtHelper.doGenerateToken(jwtHelper.getSubject(refreshTokenRequest.getRefreshToken()));
+            var loginResponse = new LoginResponse(accessToken, refreshTokenRequest.getRefreshToken());
+            // TODO (OPTIONAL) When to renew the refresh token?
+            return loginResponse;
+        }
+        return new LoginResponse();
     }
 }
